@@ -1,0 +1,41 @@
+@startuml
+class Book {
+  -book_id : int
+  -title : String
+  -genre : String
+  -year : int
+  +getBookId() : int
+  +getTitle() : String
+  +getGenre() : String
+  +getYear() : int
+}
+
+class Author {
+  -author_id : int
+  -name : String
+  -email : String
+  +getAuthorId() : int
+  +getName() : String
+  +getEmail() : String
+}
+
+class Review {
+  -review_id : int
+  -book_id : int
+  -author_id : int
+  -rating : int
+  -comment : String
+  -date : Date
+  +getReviewId() : int
+  +getBookId() : int
+  +getAuthorId() : int
+  +getRating() : int
+  +getComment() : String
+  +getDate() : Date
+}
+
+Book "1" -- "0..*" Review : has
+Author "1" -- "0..*" Review : writes
+Author "0..*" -- "0..*" Book : authors
+
+@enduml
